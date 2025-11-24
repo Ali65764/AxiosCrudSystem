@@ -15,7 +15,7 @@ const Sort = ({onSortChange}) => {
                     <option value="High To Low Age">High To Low Age</option>
                 </select>
             </div>
-            <div className="mt-4">
+            <div className="mt-2 flex-col md:flex-row items-center justify-center">
                 <button className="bg-blue-600 hover:bg-blue-800 transition duration-300 cursor-pointer text-white py-2 px-4 rounded-md"
                 onClick={()=>handleClick('A-Z Fullname')}>
                     A-Z Fullname
@@ -24,7 +24,7 @@ const Sort = ({onSortChange}) => {
                 onClick={()=>handleClick("Z-A Fullname")}>
                     Z-A Fullname
                 </button>
-                <button className="bg-green-700 hover:bg-green-800 transition duration-300 cursor-pointer text-white py-2 px-4 rounded-md ml-2"
+                <button className="mt-2 bg-green-700 hover:bg-green-800 transition duration-300 cursor-pointer text-white py-2 px-4 rounded-md ml-2"
                 onClick={()=>handleClick("Low To High Age")}>
                     Low To High Age
                 </button>
@@ -32,7 +32,7 @@ const Sort = ({onSortChange}) => {
                 onClick={()=>handleClick("High To Low Age")}>
                     High To Low Age
                 </button>
-                <button className="bg-red-600 hover:bg-red-700 transition duration-300 cursor-pointer text-white py-2 px-4 rounded-md ml-2"
+                <button className="mt-2 bg-red-600 hover:bg-red-700 transition duration-300 cursor-pointer text-white py-2 px-4 rounded-md ml-2"
                 onClick={()=>handleClick('')}>
                     Reset
                 </button>

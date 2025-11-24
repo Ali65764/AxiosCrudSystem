@@ -46,7 +46,7 @@ const Info = () => {
     <Layout>
       <div className="flex justify-center mt-15">
         {userData && (
-          <div className="text-center bg-white rounded-md w-[45%] py-5 text-3xl">
+          <div className="text-center bg-white rounded-md w-[90%] md:w-[45%] py-5 text-3xl">
             <p className="py-1 text-[40px] text-gray-500">{userData.fullName}'s Datas</p>
             {userFields.map((field) => (
               <p key={field.key} className="py-1">
