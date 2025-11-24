@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "b4bc",
+      "fullName": "Eli",
+      "email": "ali@gmail.com",
+      "position": "developer",
+      "age": "19"
+    },
+    {
+      "id": "55d1",
+      "fullName": "Togrul",
+      "email": "togrul@gmail.com",
+      "position": "student",
+      "age": "22"
+    }
+  ]
+}
