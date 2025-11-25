@@ -20,21 +20,21 @@ const EditModal = ({ onHandleEdit }) => {
   if (!showEdit || !editedUser) return null;
    
   return (
-    <div className="w-full h-full bg-[rgba(0,0,0,0.6)] fixed top-0 left-0 z-50" onClick={closeEditModal}>
+    <div className="w-full h-full bg-[rgba(0,0,0,0.6)] fixed top-0 left-0 z-50 flex justify-center items-center px-4" onClick={closeEditModal}>
       <div onClick={(e) => e.stopPropagation()}
-        className=" p-4 bg-white w-[32%] h-[65%] rounded-lg shadow-lg absolute top-[37%] left-[50%] -translate-x-1/2 -translate-y-1/2">
+        className=" p-4 bg-white w-full max-w-md sm:max-w-lg md:max-w-xl h-auto sm:h-[70%] rounded-lg shadow-lg flex flex-col">
         <div className="flex justify-between items-center border-b border-gray-300 pb-4">
-          <p className="text-2xl font-semibold">Edit User</p>
+          <p className="sm:text-2xl text-xl md:text-3xl font-semibold">Edit User</p>
           <button onClick={closeEditModal} className="cursor-pointer">
-            <IoMdClose className="text-3xl text-gray-400" />
+            <IoMdClose className="text-2xl sm:text-3xl text-gray-400" />
           </button>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-5 overflow-y-auto">
           <form onSubmit={handleSubmit}>
             {inputFields.map((field) => (
-              <div key={field.name}>
-                <p className="mb-2">{field.placeholder}</p>
+              <div key={field.name} className="mb-4">
+                <p className="mb-2 text-sm sm:text-base">{field.placeholder}</p>
                 <input type={field.type}
                   name={field.name}
                   placeholder={field.placeholder}
