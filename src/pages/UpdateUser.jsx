@@ -20,7 +20,7 @@ const UpdateUser = () => {
   const fetchData = async () => {
     try {
       const data = await GetSingleUsers(id)
-      setEditUser(data)
+      setEditUser(data[0])
     }
     catch (err) {
       console.log(err);

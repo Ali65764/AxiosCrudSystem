@@ -4,8 +4,6 @@ import { useCallback } from "react";
 const EditModal = ({ onHandleEdit }) => {
   const { showEdit, closeEditModal, editedUser, setEditedUser, inputFields } = useGlobalContext()
 
-  if (!showEdit || !editedUser) return null;
-
   const handleChange = useCallback((e) => {
     const { name, value } = e.target
     setEditedUser((prev) => ({
@@ -14,10 +12,13 @@ const EditModal = ({ onHandleEdit }) => {
     }))
   }, [setEditedUser])
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault()
     onHandleEdit(editedUser.id, editedUser)
   }
+
+  if (!showEdit || !editedUser) return null;
+   
   return (
     <div className="w-full h-full bg-[rgba(0,0,0,0.6)] fixed top-0 left-0 z-50" onClick={closeEditModal}>
       <div onClick={(e) => e.stopPropagation()}

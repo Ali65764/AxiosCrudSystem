@@ -7,7 +7,7 @@ import DeleteModal from "../components/Modal/DeleteModal"
 import { toast } from "react-toastify"
 import EditModal from "../components/Modal/EditModal"
 import Sort from "../components/Sort"
-
+import Loading from '../components/Loading'
 const Home = () => {
   const [users, setUsers] = useState([])
   const [sortOrder, setSortOrder] = useState("A-Z Fullname")
@@ -61,9 +61,7 @@ const Home = () => {
     return (
       <div>
         <Layout />
-        <div className="flex justify-center items-center mt-5">
-          <p className="text-5xl text-white">Loading...</p>
-        </div>
+        <Loading/>
       </div>
     )
   }
@@ -71,7 +69,7 @@ const Home = () => {
   const handleChangeSort = (sortType) => {
     setSortOrder(sortType)
   }
-  
+
   const sortedUser = [...users].sort((a, b) => {
     switch (sortOrder) {
       case "A-Z Fullname":
@@ -91,7 +89,7 @@ const Home = () => {
     <Layout>
       <div className="flex flex-col items-center mt-3 px-4 sm:px-6 lg:px-8">
         <p className="text-white text-xl sm:text-2xl mb-4">User List</p>
-        
+
 
         <div className="w-full max-w-6xl mb-4 text-center">
           <Sort onSortChange={handleChangeSort} />
@@ -123,14 +121,14 @@ const Home = () => {
                   <td className="py-2 px-2 text-[16px] sm:text-[18px]">{user.position}</td>
                   <td className="py-2 px-2">
                     <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                      <button 
-                        className="bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
+                      <button
+                        className="cursor-pointer bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
                         onClick={() => openEditModal(user)}
                       >
                         Modal
                       </button>
-                      <button 
-                        className="bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
+                      <button
+                        className="cursor-pointer bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
                         onClick={() => navigate(`/UpdateUser/${user.id}`)}
                       >
                         Page
@@ -139,14 +137,14 @@ const Home = () => {
                   </td>
                   <td className="py-2 px-2">
                     <div className="flex flex-col sm:flex-row gap-2 justify-center">
-                      <button 
-                        className="bg-[#dc3545] hover:bg-red-700 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
+                      <button
+                        className="cursor-pointer bg-[#dc3545] hover:bg-red-700 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
                         onClick={() => openDeleteModal(user)}
                       >
                         Delete
                       </button>
-                      <button 
-                        className="bg-[#0dcaf0] hover:bg-sky-400 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
+                      <button
+                        className="cursor-pointer bg-[#0dcaf0] hover:bg-sky-400 transition duration-300 py-2 px-3 rounded-md text-white text-sm sm:text-base"
                         onClick={() => navigate(`/info/${user.id}`)}
                       >
                         Info
@@ -170,42 +168,42 @@ const Home = () => {
                     #{index + 1}
                   </span>
                 </div>
-                
+
                 <div>
                   <span className="font-medium text-gray-600">Age:</span>
                   <p className="text-base">{user.age}</p>
                 </div>
-                
+
                 <div>
                   <span className="font-medium text-gray-600">Position:</span>
                   <p className="text-base">{user.position}</p>
                 </div>
-                
+
                 <div className="col-span-2">
                   <span className="font-medium text-gray-600">Email:</span>
                   <p className="text-base truncate" title={user.email}>{user.email}</p>
                 </div>
-                
+
                 <div className="col-span-2 border-t pt-3 mt-2">
                   <span className="font-medium text-gray-600 block mb-2">Update:</span>
                   <div className="flex gap-2 mb-3">
-                    <button className="flex-1 bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
+                    <button className="cursor-pointer flex-1 bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
                       onClick={() => openEditModal(user)}>
                       Modal
                     </button>
-                    <button className="flex-1 bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
+                    <button className="cursor-pointer flex-1 bg-[#0d6efd] hover:bg-blue-700 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
                       onClick={() => navigate(`/UpdateUser/${user.id}`)}>
                       Page
                     </button>
                   </div>
-                  
+
                   <span className="font-medium text-gray-600 block mb-2">Actions:</span>
                   <div className="flex gap-2">
-                    <button className="flex-1 bg-[#dc3545] hover:bg-red-700 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
+                    <button className="cursor-pointer flex-1 bg-[#dc3545] hover:bg-red-700 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
                       onClick={() => openDeleteModal(user)}>
                       Delete
                     </button>
-                    <button className="flex-1 bg-[#0dcaf0] hover:bg-sky-400 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
+                    <button className="cursor-pointer flex-1 bg-[#0dcaf0] hover:bg-sky-400 transition duration-300 py-2 px-2 rounded-md text-white text-sm"
                       onClick={() => navigate(`/info/${user.id}`)}>
                       Info
                     </button>

@@ -1,26 +1,27 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { GetSingleUsers } from "../service/api"
 import { useParams } from "react-router-dom"
 import Layout from "../components/Layout/Layout"
 import { useGlobalContext } from "../stores/GlobalContext"
+import Loading from "../components/Loading"
 
 const Info = () => {
   const [userData, setUserData] = useState(null)
   const { loading, setLoading } = useGlobalContext()
   const { id } = useParams()
 
-  const userFields = [
+  const userFields = useMemo(() => [
     { key: 'fullName', label: 'Fullname', value: userData?.fullName },
     { key: 'position', label: 'position', value: userData?.position },
     { key: 'email', label: "email", value: userData?.email },
     { key: 'age', label: "age", value: userData?.age }
-  ]
+  ],[userData])
 
   const fetchSingleData = async () => {
     try {
       setLoading(true)
       const data = await GetSingleUsers(id)
-      setUserData(data)
+      setUserData(data[0])
     }
     catch (err) {
       console.log(err);
@@ -36,9 +37,7 @@ const Info = () => {
   if (loading) {
     return (
       <Layout>
-        <div className="flex justify-center mt-20 text-3xl">
-          <p className="text-white">Loading...</p>
-        </div>
+        <Loading />
       </Layout>
     )
   }
