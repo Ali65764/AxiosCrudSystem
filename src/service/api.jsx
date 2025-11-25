@@ -1,10 +1,11 @@
 import axios from "axios";
-
+const supaBaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supaBaseKey = import.meta.env.VITE_SUPABASE_KEY
 const Api = axios.create({
-    baseURL: "https://zbpyterunbsgmpxznipq.supabase.co/rest/v1",
+    baseURL: `${supaBaseUrl}`,
     headers: {
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpicHl0ZXJ1bmJzZ21weHpuaXBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNjUxNjQsImV4cCI6MjA3OTY0MTE2NH0.W6OqB7YpVGSXK1Q-iKIKAh6LmDjAfO3ErJ6s-rTFOXQ",
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpicHl0ZXJ1bmJzZ21weHpuaXBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNjUxNjQsImV4cCI6MjA3OTY0MTE2NH0.W6OqB7YpVGSXK1Q-iKIKAh6LmDjAfO3ErJ6s-rTFOXQ`
+        apikey: `${supaBaseKey}`,
+        Authorization: `Bearer ${supaBaseKey}`
     }
 })
 
